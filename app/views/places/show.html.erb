@@ -11,6 +11,7 @@
         <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
       <% end %>
       <p><%= entry["description"] %></p>
+      <a href="/entries/<%= entry["id"] %>/edit" class="btn btn-sm btn-outline-secondary">Edit</a>
     </div>
   <% end %>
 </div>

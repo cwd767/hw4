@@ -1,5 +1,4 @@
 class EntriesController < ApplicationController
-
   def new
   end
 
@@ -15,4 +14,16 @@ class EntriesController < ApplicationController
     redirect_to "/places/#{@entry["place_id"]}"
   end
 
+  def edit
+    @entry = Entry.find_by({ "id" => params["id"] })
+  end
+
+  def update
+    @entry = Entry.find_by({ "id" => params["id"] })
+    @entry["title"] = params["title"]
+    @entry["description"] = params["description"]
+    @entry["occurred_on"] = params["occurred_on"]
+    @entry.save
+    redirect_to "/places/#{@entry["place_id"]}"
+  end
 end
